@@ -7,7 +7,7 @@
 
 function promiseAll(promises) {
     return new Promise((resolve, reject) => {
-        let results = [];						// 结果数组，收集所有Promise结果
+        let results = [];			// 结果数组，收集所有Promise结果
         let completedPromises = 0;	// 计数器，跟踪成功Promise个数
 
         promises.forEach((promise, index) => {
