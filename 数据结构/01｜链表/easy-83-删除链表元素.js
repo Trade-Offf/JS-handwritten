@@ -14,8 +14,9 @@ var deleteDuplicates = function (head) {
     }
 
     let current = head;
-    // 遍历链表, 当前节点的值与下一个节点的值相同时，删除下一个节点, 否则移动指针
+    // 遍历链表
     while (current !== null && current.next !== null) {
+        //  如果当前节点的值与下一个节点的值相同时，删除下一个节点, 否则移动指针
         if (current.val === current.next.val) {
             current.next = current.next.next;   // 删除操作：通过将当前节点的 next 指针指向下下个节点实现
         } else {

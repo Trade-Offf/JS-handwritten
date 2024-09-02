@@ -22,8 +22,8 @@ var isPalindrome = function (head) {
 }
 
 
-// 进阶：你能否用 O(n) 时间复杂度和 O(1) 空间复杂度解决此题？
-// 进阶解法，通过快慢指针找到链表的中点，然后反转后半部分链表，再比较前后两部分链表是否相等
+// 进阶解法：你能否用 O(n) 时间复杂度和 O(1) 空间复杂度解决此题？
+// 重点：通过快慢指针找到链表的中点，然后反转后半部分链表，再比较前后两部分链表是否相等
 const reverseList = (head) => {
     let prev = null;
     let curr = head;
@@ -63,9 +63,8 @@ var isPalindrome = function (head) {
         p2 = p2.next; // 移动到下一个节点
     }
 
-    // 还原链表并返回结果
-    firstHalfEnd.next = reverseList(secondHalfStart); // 还原反转的后半部分链表
-    return result; // 返回是否为回文链表的结果
+    firstHalfEnd.next = reverseList(secondHalfStart); // 还原链表
+    return result; // 返回结果
 };
 
 
