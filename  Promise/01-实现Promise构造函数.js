@@ -12,6 +12,8 @@ function MyPromise(fn) {
     this.onFulfilledCallbacks = []; // 存储成功的回调函数
     this.onRejectedCallbacks = [];  // 存储失败的回调函数
 
+    // resolve 和 reject 函数，用来改变 promise 的状态和传递结果
+    // resolve 和 reject 函数接收一个参数，作为 promise 的结果
     const resolve = (value) => {
         if (this.state === 'PENDING') {
             this.state = 'FULFILLED'
@@ -26,7 +28,7 @@ function MyPromise(fn) {
             this.onRejectedCallbacks.forEach(fn => fn(reason))
         }
     }
-
+    // then 方法接收两个参数，onFulfilled 和 onRejected，它们分别在 promise 状态变为成功或失败时被调用
     this.then = (onFulfilled, onRejected) => {
         // 设置默认处理函数
         onFulfilled = typeof onFulfilled === 'function' ? onFulfilled : value => value;
@@ -69,6 +71,7 @@ function MyPromise(fn) {
         );
     };
 
+    // 为了确保在执行过程中发生的任何同步错误都能被捕获
     try {
         fn(resolve, reject);
     } catch (error) {

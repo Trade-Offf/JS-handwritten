@@ -1,5 +1,3 @@
-
-
 class MyPromise {
     constructor(fn) {
         this.state = 'PENDING';
